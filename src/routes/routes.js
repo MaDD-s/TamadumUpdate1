@@ -200,17 +200,17 @@ let pagesMenu = {
   children: [
     {
       path: 'DCUSettings',
-      name: 'DCU Settings',
+      name: 'Концентратор тохиргоо',
       components: { default: DCUSettings }
     },
     {
       path: 'AreaSettings',
-      name: 'Area Settings',
+      name: 'Байршил тохиргоо',
       components: { default: AreaSettings }
     },
     {
-      path: 'rtl',
-      name: 'RTL Page',
+      path: 'meterSettings',
+      name: 'Тоолуур тохиргоо',
       components: { default: meterSettings }
     }
   ]
@@ -264,7 +264,7 @@ const routes = [
     children: [
       {
         path: 'dashboard',
-        name: 'Dashboard',
+        name: 'Хянах самбар',
         components: { default: Dashboard }
       },
       {
