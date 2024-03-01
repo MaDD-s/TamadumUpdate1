@@ -10,6 +10,24 @@ const Calendar = () =>
 const Charts = () =>
   import(/* webpackChunkName: "dashboard" */ 'src/pages/Charts.vue');
 
+//instantaneous data pages
+const F25 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F25.vue');
+const F129 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F129.vue');
+const F177 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F177.vue');
+const F130 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F130.vue');
+const F131 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F131.vue');
+const F132 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F132.vue');
+const time = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/time.vue');
+
+
+
 // Components pages
 const Buttons = () =>
   import(/* webpackChunkName: "components" */ 'src/pages/Components/Buttons.vue');
@@ -25,6 +43,7 @@ const Icons = () =>
   import(/* webpackChunkName: "components" */ 'src/pages/Components/Icons.vue');
 const Typography = () =>
   import(/* webpackChunkName: "components" */ 'src/pages/Components/Typography.vue');
+
 
 // Dashboard pages
 const Dashboard = () =>
@@ -111,6 +130,51 @@ let componentsMenu = {
     }
   ]
 };
+
+let instantaneousData = {
+  path: '/instantaneousData',
+  component: DashboardLayout,
+  redirect: '/instantaneousData/F129',
+  name: 'Агшин зуурын мэдээлэл',
+  children: [
+    {
+      path: 'F25',
+      name: 'Гүйдэл, Хүчдэл, Чадал болон бусад мэдээлэл',
+      components: { default: F25 }
+    },
+    {
+      path: 'F177',
+      name: 'Нийт идэвхтэй энерги',
+      components: { default: F177 }
+    },
+    {
+      path: 'F129',
+      name: 'Эерэг идэвхтэй энерги',
+      components: { default: F129 }
+    },
+    {
+      path: 'F130',
+      name: 'Эерэг хуурмаг энерги',
+      components: { default: F130 }
+    },
+    {
+      path: 'F131',
+      name: 'Сөрөг идэвхтэй энерги',
+      components: { default: F131 }
+    },
+    {
+      path: 'F132',
+      name: 'Сөрөг хуурмаг энерги',
+      components: { default: F132 }
+    },
+    {
+      path: 'time',
+      name: 'Тоолуурын огноо',
+      components: { default: time }
+    }
+  ]
+};
+
 let formsMenu = {
   path: '/forms',
   component: DashboardLayout,
@@ -251,6 +315,7 @@ const routes = [
     name: 'Home'
   },
   componentsMenu,
+  instantaneousData,
   formsMenu,
   tablesMenu,
   mapsMenu,

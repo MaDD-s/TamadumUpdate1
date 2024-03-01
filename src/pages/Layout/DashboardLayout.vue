@@ -17,7 +17,7 @@
         >
         </sidebar-item>
         <sidebar-item
-          :link="{ name: $t('sidebar.deviceSettings'), icon: 'tim-icons icon-image-02' }"
+          :link="{ name: $t('sidebar.deviceSettings'), icon: 'tim-icons icon-settings' }"
         >
           <sidebar-item
             :link="{ name: $t('sidebar.areaSettings'), path: '/deviceSettings/AreaSettings' }"
@@ -31,139 +31,105 @@
         </sidebar-item>
         <sidebar-item
           :link="{
-            name: $t('sidebar.components'),
-            icon: 'tim-icons icon-molecule-40'
+            name: $t('sidebar.instantaneousData'),
+            icon: 'tim-icons icon-sound-wave'
           }"
         >
-          <sidebar-item :link="{ name: $t('sidebar.multiLevelCollapse') }">
-            <sidebar-item
-              :link="{
-                name: $t('sidebar.example'),
-                isRoute: false,
-                path: 'https://google.com',
-                target: '_blank'
-              }"
-            ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F25'), path: '/instantaneousData/F25' }"
+           ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F177'), path: '/instantaneousData/F177' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F129'), path: '/instantaneousData/F129' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F129'), path: '/instantaneousData/F129' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F130'), path: '/instantaneousData/F130' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F131'), path: '/instantaneousData/F131' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F132'), path: '/instantaneousData/F132' }"
+          ></sidebar-item>    
+          <sidebar-item
+            :link="{name: $t('sidebar.time'), path: '/instantaneousData/time' }"
+          ></sidebar-item>        
           </sidebar-item>
-
           <sidebar-item
-            :link="{ name: $t('sidebar.buttons'), path: '/components/buttons' }"
+          :link="{ name: $t('sidebar.controlMeter'), icon: 'tim-icons icon-bulb-63' }"
+        >
+          <sidebar-item
+            :link="{ name: $t('sidebar.control'), path: '/controlMeter/control' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.gridSystem'),
-              path: '/components/grid-system'
-            }"
+            :link="{ name: $t('sidebar.coverEvent'), path: '/deviceSettings/coverEvent' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{ name: $t('sidebar.panels'), path: '/components/panels' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{
-              name: $t('sidebar.sweetAlert'),
-              path: '/components/sweet-alert'
-            }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{
-              name: $t('sidebar.notifications'),
-              path: '/components/notifications'
-            }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: $t('sidebar.icons'), path: '/components/icons' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{
-              name: $t('sidebar.typography'),
-              path: '/components/typography'
-            }"
+            :link="{ name: $t('sidebar.tariffChange'), path: '/deviceSettings/tariffChange' }"
           ></sidebar-item>
         </sidebar-item>
         <sidebar-item
-          :link="{ name: $t('sidebar.forms'), icon: 'tim-icons icon-notes' }"
+          :link="{ name: $t('sidebar.loadProfile'), icon: 'tim-icons icon-refresh-01' }"
         >
           <sidebar-item
-            :link="{ name: $t('sidebar.regularForms'), path: '/forms/regular' }"
+            :link="{ name: $t('sidebar.energy'), path: '/loadProfile/energy' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.extendedForms'),
-              path: '/forms/extended'
-            }"
+            :link="{ name: $t('sidebar.current'), path: '/loadProfile/current' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.validationForms'),
-              path: '/forms/validation'
-            }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: $t('sidebar.wizard'), path: '/forms/wizard' }"
+            :link="{ name: $t('sidebar.voltage'), path: '/loadProfile/voltage' }"
           ></sidebar-item>
         </sidebar-item>
         <sidebar-item
           :link="{
-            name: $t('sidebar.tables'),
-            icon: 'tim-icons icon-puzzle-10'
+            name: $t('sidebar.history'),
+            icon: 'tim-icons icon-sound-wave'
           }"
         >
           <sidebar-item
-            :link="{
-              name: $t('sidebar.regularTables'),
-              path: '/table-list/regular'
-            }"
+            :link="{name: $t('sidebar.F25'), path: '/History/F25' }"
+           ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F177'), path: '/History/F177' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.extendedTables'),
-              path: '/table-list/extended'
-            }"
+            :link="{name: $t('sidebar.F129'), path: '/History/F129' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.paginatedTables'),
-              path: '/table-list/paginated'
-            }"
+            :link="{name: $t('sidebar.F129'), path: '/History/F129' }"
           ></sidebar-item>
-        </sidebar-item>
-        <sidebar-item
-          :link="{ name: $t('sidebar.maps'), icon: 'tim-icons icon-pin' }"
+          <sidebar-item
+            :link="{name: $t('sidebar.F130'), path: '/History/F130' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F131'), path: '/History/F131' }"
+          ></sidebar-item>
+          <sidebar-item
+            :link="{name: $t('sidebar.F132'), path: '/History/F132' }"
+          ></sidebar-item>    
+          <sidebar-item
+            :link="{name: $t('sidebar.peakLoad'), path: '/History/peakLoad' }"
+          ></sidebar-item>  
+          <sidebar-item
+            :link="{name: $t('sidebar.voltageDrop'), path: '/History/voltageDrop' }"
+          ></sidebar-item> 
+          </sidebar-item>
+          <sidebar-item
+          :link="{ name: $t('sidebar.balance'), icon: 'tim-icons icon-refresh-01' }"
         >
           <sidebar-item
-            :link="{ name: $t('sidebar.googleMaps'), path: '/maps/google' }"
+            :link="{ name: $t('sidebar.balanceSettings'), path: '/balance/balanceSettings' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{
-              name: $t('sidebar.fullScreenMaps'),
-              path: '/maps/full-screen'
-            }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: $t('sidebar.vectorMaps'), path: '/maps/vector-map' }"
+            :link="{ name: $t('sidebar.balanceView'), path: '/balance/balanceView' }"
           ></sidebar-item>
         </sidebar-item>
-        <sidebar-item
-          :link="{
-            name: $t('sidebar.widgets'),
-            icon: 'tim-icons icon-settings',
-            path: '/widgets'
-          }"
-        ></sidebar-item>
-        <sidebar-item
-          :link="{
-            name: $t('sidebar.charts'),
-            icon: 'tim-icons icon-chart-bar-32',
-            path: '/charts'
-          }"
-        ></sidebar-item>
-        <sidebar-item
-          :link="{
-            name: $t('sidebar.calendar'),
-            icon: 'tim-icons icon-time-alarm',
-            path: '/calendar'
-          }"
-        ></sidebar-item>
       </template>
     </side-bar>
     <!--Share plugin (for demo purposes). You can remove it if don't plan on using it-->
