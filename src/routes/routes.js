@@ -1,18 +1,22 @@
 import DashboardLayout from 'src/pages/Layout/DashboardLayout.vue';
-import AuthLayout from 'src/pages/Pages/AuthLayout.vue';
-// GeneralViews
 import NotFound from 'src/pages/GeneralViews/NotFoundPage.vue';
 
-// Calendar
-const Calendar = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Calendar/CalendarRoute.vue');
-// Charts
-const Charts = () =>
-  import(/* webpackChunkName: "dashboard" */ 'src/pages/Charts.vue');
+// Dashboard pages
+const Dashboard = () =>
+  import(/* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
+import Widgets from 'src/pages/Widgets.vue';
 
-//instantaneous data pages
+// Device Settings
+const DCUSettings = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/deviceSettings/DCUSettings.vue');
+const AreaSettings = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/deviceSettings/AreaSettings.vue');
+const meterSettings = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/deviceSettings/meterSettings.vue');
+
+  //instantaneous data pages
 const F25 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F25.vue');
+import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F25.vue');
 const F129 = () =>
 import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F129.vue');
 const F177 = () =>
@@ -26,107 +30,60 @@ import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/F132.vu
 const time = () =>
 import(/* webpackChunkName: "components" */ 'src/pages/instantaneousData/time.vue');
 
+// Control Meter Settings
+const control = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/ControlMeter/control.vue');
+const coverEvent = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/ControlMeter/coverEvent.vue');
+const tariffChange = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/ControlMeter/tariffChange.vue');
 
+  // Load Profile Settings
+const energy = () =>
+import(/* webpackChunkName: "pages" */ 'src/pages/loadProfile/energy.vue');
+const current = () =>
+import(/* webpackChunkName: "pages" */ 'src/pages/loadProfile/current.vue');
+const voltage = () =>
+import(/* webpackChunkName: "pages" */ 'src/pages/loadProfile/voltage.vue');
 
-// Components pages
-const Buttons = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Buttons.vue');
-const GridSystem = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/GridSystem.vue');
-const Panels = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Panels.vue');
-const SweetAlert = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/SweetAlert.vue');
-const Notifications = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Notifications.vue');
-const Icons = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Icons.vue');
-const Typography = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Typography.vue');
+  //instantaneous data pages
+  const hF25 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF25.vue');
+  const hF129 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF129.vue');
+  const hF177 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF177.vue');
+  const hF130 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF130.vue');
+  const hF131 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF131.vue');
+  const hF132 = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF132.vue');
+  const peakLoad = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/peakLoad.vue');
+  const voltageDrop = () =>
+  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/voltageDrop.vue');
 
-
-// Dashboard pages
-const Dashboard = () =>
-  import(/* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
-import Widgets from 'src/pages/Widgets.vue';
-
-// Forms pages
-const RegularForms = () => import('src/pages/Forms/RegularForms.vue');
-const ExtendedForms = () => import('src/pages/Forms/ExtendedForms.vue');
-const ValidationForms = () => import('src/pages/Forms/ValidationForms.vue');
-const Wizard = () => import('src/pages/Forms/Wizard.vue');
-
-// Maps pages
-const GoogleMaps = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Maps/GoogleMaps.vue');
-const FullScreenMap = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Maps/FullScreenMap.vue');
-const VectorMaps = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Maps/VectorMaps.vue');
-
-// Device Settings
-const DCUSettings = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/DCUSettings.vue');
-const Pricing = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Pricing.vue');
-const AreaSettings = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/AreaSettings.vue');
-const Login = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Login.vue');
-const Register = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Register.vue');
-const meterSettings = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/meterSettings.vue');
-const Lock = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Lock.vue');
-
-// TableList pages
-const RegularTables = () =>
-  import(/* webpackChunkName: "tables" */ 'src/pages/Tables/RegularTables.vue');
-const ExtendedTables = () =>
-  import(/* webpackChunkName: "tables" */ 'src/pages/Tables/ExtendedTables.vue');
-const PaginatedTables = () =>
-  import(/* webpackChunkName: "tables" */ 'src/pages/Tables/PaginatedTables.vue');
-let componentsMenu = {
-  path: '/components',
+let deviceSettingsMenu = {
+  path: '/deviceSettings',
   component: DashboardLayout,
-  redirect: '/components/buttons',
-  name: 'Components',
+  name: 'deviceSettings',
+  redirect: '/pages/user',
   children: [
     {
-      path: 'buttons',
-      name: 'Buttons',
-      components: { default: Buttons }
+      path: 'DCUSettings',
+      name: 'Концентратор тохиргоо',
+      components: { default: DCUSettings }
     },
     {
-      path: 'grid-system',
-      name: 'Grid System',
-      components: { default: GridSystem }
+      path: 'AreaSettings',
+      name: 'Байршил тохиргоо',
+      components: { default: AreaSettings }
     },
     {
-      path: 'panels',
-      name: 'Panels',
-      components: { default: Panels }
-    },
-    {
-      path: 'sweet-alert',
-      name: 'Sweet Alert',
-      components: { default: SweetAlert }
-    },
-    {
-      path: 'notifications',
-      name: 'Notifications',
-      components: { default: Notifications }
-    },
-    {
-      path: 'icons',
-      name: 'Icons',
-      components: { default: Icons }
-    },
-    {
-      path: 'typography',
-      name: 'Typography',
-      components: { default: Typography }
+      path: 'meterSettings',
+      name: 'Тоолуур тохиргоо',
+      components: { default: meterSettings }
     }
   ]
 };
@@ -175,135 +132,99 @@ let instantaneousData = {
   ]
 };
 
-let formsMenu = {
-  path: '/forms',
+let controlMeterMenu = {
+  path: '/ControlMeter',
   component: DashboardLayout,
-  redirect: '/forms/regular',
-  name: 'Forms',
+  name: 'controlMeter',
+  redirect: '/controlMeter/control',
   children: [
     {
-      path: 'regular',
-      name: 'Regular Forms',
-      components: { default: RegularForms }
+      path: 'control',
+      name: 'Тоолуур удирдах (асаах/унтраах)',
+      components: { default: control }
     },
     {
-      path: 'extended',
-      name: 'Extended Forms',
-      components: { default: ExtendedForms }
+      path: 'coverEvent',
+      name: 'Тагны тохиргоо',
+      components: { default: coverEvent }
     },
     {
-      path: 'validation',
-      name: 'Validation Forms',
-      components: { default: ValidationForms }
-    },
-    {
-      path: 'wizard',
-      name: 'Wizard',
-      components: { default: Wizard }
+      path: 'tariffChange',
+      name: 'Тарифын тохиргоо',
+      components: { default: tariffChange }
     }
   ]
 };
 
-let tablesMenu = {
-  path: '/table-list',
+let loadProfileMenu = {
+  path: '/loadProfile',
   component: DashboardLayout,
-  redirect: '/table-list/regular',
-  name: 'Tables',
+  name: 'loadProfile',
+  redirect: '/loadProfile/energy',
   children: [
     {
-      path: 'regular',
-      name: 'Regular Tabls',
-      components: { default: RegularTables }
+      path: 'energy',
+      name: 'Энерги',
+      components: { default: energy }
     },
     {
-      path: 'extended',
-      name: 'Extended Tables',
-      components: { default: ExtendedTables }
+      path: 'current',
+      name: 'Гүйдэл',
+      components: { default: current }
     },
     {
-      path: 'paginated',
-      name: 'Paginated Tables',
-      components: { default: PaginatedTables }
+      path: 'voltage',
+      name: 'Хүчдэл',
+      components: { default: voltage }
     }
   ]
 };
 
-let mapsMenu = {
-  path: '/maps',
+let historicalDataMenu = {
+  path: '/historicalData',
   component: DashboardLayout,
-  name: 'Maps',
-  redirect: '/maps/google',
+  redirect: '/historicalData/hF129',
+  name: 'Түүхэн мэдээлэл',
   children: [
     {
-      path: 'google',
-      name: 'Google Maps',
-      components: { default: GoogleMaps }
+      path: 'hF25',
+      name: 'Гүйдэл, Хүчдэл, Чадал болон бусад мэдээлэл',
+      components: { default: hF25 }
     },
     {
-      path: 'full-screen',
-      name: 'Full Screen Map',
-      meta: {
-        hideContent: true,
-        hideFooter: true
-      },
-      components: { default: FullScreenMap }
+      path: 'hF177',
+      name: 'Нийт идэвхтэй энерги',
+      components: { default: hF177 }
     },
     {
-      path: 'vector-map',
-      name: 'Vector Map',
-      components: { default: VectorMaps }
-    }
-  ]
-};
-
-let pagesMenu = {
-  path: '/deviceSettings',
-  component: DashboardLayout,
-  name: 'deviceSettings',
-  redirect: '/pages/user',
-  children: [
-    {
-      path: 'DCUSettings',
-      name: 'Концентратор тохиргоо',
-      components: { default: DCUSettings }
+      path: 'hF129',
+      name: 'Эерэг идэвхтэй энерги',
+      components: { default: hF129 }
     },
     {
-      path: 'AreaSettings',
-      name: 'Байршил тохиргоо',
-      components: { default: AreaSettings }
+      path: 'hF130',
+      name: 'Эерэг хуурмаг энерги',
+      components: { default: hF130 }
     },
     {
-      path: 'meterSettings',
-      name: 'Тоолуур тохиргоо',
-      components: { default: meterSettings }
-    }
-  ]
-};
-
-let authPages = {
-  path: '/',
-  component: AuthLayout,
-  name: 'Authentication',
-  children: [
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path: 'hF131',
+      name: 'Сөрөг идэвхтэй энерги',
+      components: { default: hF131 }
     },
     {
-      path: '/register',
-      name: 'Register',
-      component: Register
+      path: 'hF132',
+      name: 'Сөрөг хуурмаг энерги',
+      components: { default: hF132 }
     },
     {
-      path: '/pricing',
-      name: 'Pricing',
-      component: Pricing
+      path: 'peakLoad',
+      name: 'Өдрийн хамгийн өндөр ачаалал',
+      components: { default: peakLoad }
     },
     {
-      path: '/lock',
-      name: 'Lock',
-      component: Lock
+      path: 'voltageDrop',
+      name: 'Хүчдэлийн уналт',
+      components: { default: voltageDrop }
     }
   ]
 };
@@ -314,13 +235,11 @@ const routes = [
     redirect: '/dashboard',
     name: 'Home'
   },
-  componentsMenu,
   instantaneousData,
-  formsMenu,
-  tablesMenu,
-  mapsMenu,
-  pagesMenu,
-  authPages,
+  controlMeterMenu,
+  loadProfileMenu,
+  historicalDataMenu,
+  deviceSettingsMenu,
   {
     path: '/',
     component: DashboardLayout,
@@ -331,16 +250,6 @@ const routes = [
         path: 'dashboard',
         name: 'Хянах самбар',
         components: { default: Dashboard }
-      },
-      {
-        path: 'calendar',
-        name: 'Calendar',
-        components: { default: Calendar }
-      },
-      {
-        path: 'charts',
-        name: 'Charts',
-        components: { default: Charts }
       },
       {
         path: 'widgets',

@@ -45,9 +45,6 @@
             :link="{name: $t('sidebar.F129'), path: '/instantaneousData/F129' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F129'), path: '/instantaneousData/F129' }"
-          ></sidebar-item>
-          <sidebar-item
             :link="{name: $t('sidebar.F130'), path: '/instantaneousData/F130' }"
           ></sidebar-item>
           <sidebar-item
@@ -67,10 +64,10 @@
             :link="{ name: $t('sidebar.control'), path: '/controlMeter/control' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{ name: $t('sidebar.coverEvent'), path: '/deviceSettings/coverEvent' }"
+            :link="{ name: $t('sidebar.coverEvent'), path: '/controlMeter/coverEvent' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{ name: $t('sidebar.tariffChange'), path: '/deviceSettings/tariffChange' }"
+            :link="{ name: $t('sidebar.tariffChange'), path: '/controlMeter/tariffChange' }"
           ></sidebar-item>
         </sidebar-item>
         <sidebar-item
@@ -93,31 +90,28 @@
           }"
         >
           <sidebar-item
-            :link="{name: $t('sidebar.F25'), path: '/History/F25' }"
+            :link="{name: $t('sidebar.F25'), path: '/historicalData/hF25' }"
            ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F177'), path: '/History/F177' }"
+            :link="{name: $t('sidebar.F177'), path: '/historicalData/hF177' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F129'), path: '/History/F129' }"
+            :link="{name: $t('sidebar.F129'), path: '/historicalData/hF129' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F129'), path: '/History/F129' }"
+            :link="{name: $t('sidebar.F130'), path: '/historicalData/hF130' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F130'), path: '/History/F130' }"
+            :link="{name: $t('sidebar.F131'), path: '/historicalData/hF131' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{name: $t('sidebar.F131'), path: '/History/F131' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{name: $t('sidebar.F132'), path: '/History/F132' }"
+            :link="{name: $t('sidebar.F132'), path: '/historicalData/hF132' }"
           ></sidebar-item>    
           <sidebar-item
-            :link="{name: $t('sidebar.peakLoad'), path: '/History/peakLoad' }"
+            :link="{name: $t('sidebar.peakLoad'), path: '/historicalData/peakLoad' }"
           ></sidebar-item>  
           <sidebar-item
-            :link="{name: $t('sidebar.voltageDrop'), path: '/History/voltageDrop' }"
+            :link="{name: $t('sidebar.voltageDrop'), path: '/historicalData/voltageDrop' }"
           ></sidebar-item> 
           </sidebar-item>
           <sidebar-item

@@ -26,15 +26,7 @@
           <input type="text" class="form-control" placeholder="Search...">
           <div class="input-group-addon"><i class="tim-icons icon-zoom-split"></i></div>
         -->
-        <button
-          class="btn btn-link"
-          id="search-button"
-          data-toggle="modal"
-          data-target="#searchModal"
-        >
-          <i class="tim-icons icon-zoom-split"></i>
-        </button>
-        <!-- You can choose types of search input -->
+
       </div>
       <modal
         :show.sync="searchModalVisible"
@@ -136,6 +128,8 @@ export default {
   },
   data() {
     return {
+      tabs: [],
+      tabCounter: 0,
       activeNotifications: false,
       showMenu: false,
       searchModalVisible: false,

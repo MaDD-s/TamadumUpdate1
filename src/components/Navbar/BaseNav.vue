@@ -1,5 +1,5 @@
 <template>
-  <nav :class="classes" class="navbar">
+  <nav :class="classes" :style="{ position: sticky }" class="navbar">
     <div :class="containerClasses">
       <slot name="brand"></slot>
 
