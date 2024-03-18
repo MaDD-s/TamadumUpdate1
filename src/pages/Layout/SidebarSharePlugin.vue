@@ -5,67 +5,14 @@
         <i class="fa fa-cog fa-2x" @click="toggleDropDown"> </i>
       </a>
       <ul class="dropdown-menu" :class="{ show: isOpen }">
-        <li class="header-title">Sidebar Background</li>
         <li class="adjustments-line">
-          <a class="switch-trigger background-color">
-            <div class="badge-colors text-center">
-              <span
-                v-for="item in sidebarColors"
-                :key="item.color"
-                class="badge filter"
-                :class="[`badge-${item.color}`, { active: item.active }]"
-                :data-color="item.color"
-                @click="changeSidebarBackground(item);"
-              ></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-
-        <li class="header-title">Sidebar Mini</li>
-        <li class="adjustments-line">
-          <div class="togglebutton switch-sidebar-mini">
-            <span class="label-switch">OFF</span>
-            <base-switch
-              v-model="sidebarMini"
-              @input="minimizeSidebar"
-            ></base-switch>
-            <span class="label-switch label-right">ON</span>
-          </div>
-
-          <div class="togglebutton switch-change-color mt-3">
-            <span class="label-switch">LIGHT MODE</span>
+          <div class="togglebutton switch-change-color mt-3" center-align>
+            <span class="label-switch">ГЭРЭЛТЭЙ ГОРИМ</span>
             <base-switch v-model="darkMode" @input="toggleMode"></base-switch>
-            <span class="label-switch label-right">DARK MODE</span>
+            <span class="label-switch label-right">ХАРАНХУЙ ГОРИМ</span>
           </div>
         </li>
-
-        <li class="button-container mt-4">
-          <a
-            href="https://demos.creative-tim.com/vue-black-dashboard-pro/documentation"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-default btn-block btn-round"
-          >
-            Documentation
-          </a>
-          <a
-            href="https://creative-tim.com/product/vue-black-dashboard-pro"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-primary btn-block btn-round"
-          >
-            Buy for $59
-          </a>
-          <a
-            href="https://demos.creative-tim.com/vue-black-dashboard"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-info btn-block btn-round"
-          >
-            Free Version
-          </a>
-        </li>
+        <li></li>
       </ul>
     </div>
   </div>

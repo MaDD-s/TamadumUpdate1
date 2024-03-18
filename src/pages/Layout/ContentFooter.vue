@@ -9,7 +9,7 @@
             rel="noopener"
             class="nav-link"
           >
-            Creative Tim
+            Бидэнтэй холбогдох
           </a>
         </li>
         <li class="nav-item">
@@ -19,7 +19,7 @@
             rel="noopener"
             class="nav-link"
           >
-            About Us
+            Танилцуулга татах
           </a>
         </li>
         <li class="nav-item">
@@ -29,19 +29,19 @@
             rel="noopener"
             class="nav-link"
           >
-            Blog
+            Хаяг байршил, цагийн хуваарь харах
           </a>
         </li>
       </ul>
       <div class="copyright">
-        &copy; {{ year }}, made with <i class="tim-icons icon-heart-2"></i> by
+        &copy; {{ year }}, 
         <a
-          href="https://www.creative-tim.com/?ref=vbdp-vuejs"
+          href="http://measurement.mn/tamadum-system"
           target="_blank"
           rel="noopener"
-          >Creative Tim</a
+          >МЭЙЖҮРМЭНТ ХХК</a
         >
-        for a better web.
+        Зохиогчийн эрх хамгаалагдсан.
       </div>
     </div>
   </footer>

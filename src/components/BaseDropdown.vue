@@ -70,7 +70,7 @@ export default {
     menuOnRight: {
       type: Boolean,
       description: 'Whether menu should appear on the right'
-    }
+    },
   },
   data() {
     return {
@@ -93,5 +93,7 @@ export default {
 .dropdown {
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center; // Vertical alignment
 }
 </style>

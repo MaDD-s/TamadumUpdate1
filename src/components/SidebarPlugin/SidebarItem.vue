@@ -194,6 +194,6 @@ export default {
 </script>
 <style>
 .sidebar-menu-item {
-  cursor: pointer;
+  cursor: hand;
 }
 </style>

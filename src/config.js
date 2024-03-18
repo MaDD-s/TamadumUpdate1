@@ -7,7 +7,7 @@ export default {
     orange: '#ff8a76',
     teal: '#00d6b4',
     primaryGradient: [
-      'rgba(76, 211, 150, 0.1)',
+      'rgba(31, 60, 180, 255)',
       'rgba(53, 183, 125, 0)',
       'rgba(119,52,169,0)'
     ],

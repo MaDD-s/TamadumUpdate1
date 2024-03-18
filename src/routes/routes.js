@@ -6,6 +6,7 @@ const Dashboard = () =>
   import(/* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
 import Widgets from 'src/pages/Widgets.vue';
 
+
 // Device Settings
 const DCUSettings = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/deviceSettings/DCUSettings.vue');
@@ -46,23 +47,28 @@ import(/* webpackChunkName: "pages" */ 'src/pages/loadProfile/current.vue');
 const voltage = () =>
 import(/* webpackChunkName: "pages" */ 'src/pages/loadProfile/voltage.vue');
 
-  //instantaneous data pages
-  const hF25 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF25.vue');
-  const hF129 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF129.vue');
-  const hF177 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF177.vue');
-  const hF130 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF130.vue');
-  const hF131 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF131.vue');
-  const hF132 = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF132.vue');
-  const peakLoad = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/peakLoad.vue');
-  const voltageDrop = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/historicalData/voltageDrop.vue');
+//instantaneous data pages
+const hF25 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF25.vue');
+const hF129 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF129.vue');
+const hF177 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF177.vue');
+const hF130 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF130.vue');
+const hF131 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF131.vue');
+const hF132 = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/hF132.vue');
+const peakLoad = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/peakLoad.vue');
+const voltageDrop = () =>
+import(/* webpackChunkName: "components" */ 'src/pages/historicalData/voltageDrop.vue');
+
+const balanceSettings = () =>
+import(/* webpackChunkName: "pages" */ 'src/pages/Balance/balanceSettings.vue');
+const balanceView = () =>
+import(/* webpackChunkName: "pages" */ 'src/pages/Balance/balanceView.vue');
 
 let deviceSettingsMenu = {
   path: '/deviceSettings',
@@ -229,6 +235,25 @@ let historicalDataMenu = {
   ]
 };
 
+let balanceMenu = {
+  path: '/balance',
+  component: DashboardLayout,
+  name: 'balance',
+  redirect: '/Balance/balanceView',
+  children: [
+    {
+      path: 'balanceSettings',
+      name: 'Балансын тохиргоо',
+      components: { default: balanceSettings }
+    },
+    {
+      path: 'balanceView',
+      name: 'Баланс гаргах',
+      components: { default: balanceView }
+    }
+  ]
+};
+
 const routes = [
   {
     path: '/',
@@ -240,6 +265,7 @@ const routes = [
   loadProfileMenu,
   historicalDataMenu,
   deviceSettingsMenu,
+  balanceMenu,
   {
     path: '/',
     component: DashboardLayout,

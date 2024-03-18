@@ -115,13 +115,13 @@
           ></sidebar-item> 
           </sidebar-item>
           <sidebar-item
-          :link="{ name: $t('sidebar.balance'), icon: 'tim-icons icon-refresh-01' }"
+          :link="{ name: $t('sidebar.balance'), icon: 'tim-icons icon-chart-bar-32' }"
         >
           <sidebar-item
-            :link="{ name: $t('sidebar.balanceSettings'), path: '/balance/balanceSettings' }"
+            :link="{ name: $t('sidebar.balanceSettings'), path: '/Balance/balanceSettings' }"
           ></sidebar-item>
           <sidebar-item
-            :link="{ name: $t('sidebar.balanceView'), path: '/balance/balanceView' }"
+            :link="{ name: $t('sidebar.balanceView'), path: '/Balance/balanceView' }"
           ></sidebar-item>
         </sidebar-item>
       </template>
@@ -233,6 +233,15 @@ $scaleSize: 0.95;
     opacity: 0;
     transform: scale3d($scaleSize, $scaleSize, $scaleSize);
   }
+}
+
+.sidebar-item {
+  font-weight: bold;
+}
+
+.sidebar-item a {
+  color: inherit; /* Keep link color as default */
+  text-decoration: none; /* Remove underline */
 }
 
 .main-panel .zoomOut {
