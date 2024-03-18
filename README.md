@@ -1,6 +1,6 @@
-# [ТАМАДУМ ШИНЭЧЛЭЛ - ЭНЭ ДЭЭР ДАРЖ TEMPLATE-ТЭЙ ТАНИЛЦААРАЙ](https://demos.creative-tim.com/paper-dashboard-pro-react/#/dashboard)
+# [ТАМАДУМ ШИНЭЧЛЭЛ - ЭНЭ ДЭЭР ДАРЖ TEMPLATE-ТЭЙ ТАНИЛЦААРАЙ](https://demos.creative-tim.com/vue-black-dashboard-pro/?_ga=2.79595985.492814395.1710610815-1295490352.1708335994#/dashboard)
 
-![version](https://img.shields.io/badge/version-3.1-blue.svg) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+![version](https://img.shields.io/badge/version-3.1-blue.svg) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/Kz6DJnUT)
 
 ![Product Gif](./github-assets/vue-black-dashboard-pro.gif)
 
