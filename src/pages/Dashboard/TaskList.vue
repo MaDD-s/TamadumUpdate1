@@ -32,36 +32,36 @@ export default {
     return {
       tableData: [
         {
-          title: 'Update the Documentation',
-          description: 'Dwuamish Head, Seattle, WA 8:47 AM',
+      title: 'Алдааг засах',
+          description: 'Засаж байгаа',
           done: false
         },
         {
-          title: 'GDPR Compliance',
+          title: 'Тоолуур холбох',
           description:
-            'The GDPR is a regulation that requires businesses to protect the personal data and privacy of Europe citizens for transactions that occur within EU member states.',
+            'Холбосон',
           done: true
         },
         {
-          title: 'Solve the issues',
+          title: 'бас л алдаа',
           description:
-            'Fifty percent of all respondents said they would be more likely to shop at a company',
+            'засаж байгаа',
           done: false
         },
         {
-          title: 'Release v2.0.0',
-          description: 'Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM',
+          title: 'алдаа',
+          description: 'зассан',
           done: false
         },
         {
-          title: 'Export the processed files',
+          title: 'алдаа',
           description:
-            'The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs.',
+            'зассан',
           done: false
         },
         {
-          title: 'Arival at export process',
-          description: 'Capitol Hill, Seattle, WA 12:34 AM',
+          title: 'алдаа',
+          description: 'зассан',
           done: false
         }
       ]
