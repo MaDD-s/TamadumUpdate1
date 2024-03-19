@@ -2,16 +2,17 @@
   <div class="row">
     <div class="col-md-12">
       <card class="card-plain" body-classes="table-full-width">
-        <div class="position-relative">
+        <div class="position-relative" style="margin-top: -12px;">
           <!-- Search bar row -->
           
           <el-table
+            ref="table"
             class="table-container"
             header-cell-class-name="table-e"
-            header-row-class-name="table-header"
+            header-row-class-name="custom-table-header"
             row-class-name="table-transparent"
             :data="filteredTableData"
-            height="400px"
+            height="675px"
             @row-click="handleRowClick"
           >
             <el-table-column type="selection" width="55"></el-table-column>
@@ -125,7 +126,10 @@ export default {
   margin-bottom: 10px;
   text-align: left;
 }
-
+.el-table__header th {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
 .search-row {
   margin-bottom: 10px;
 }
@@ -138,10 +142,22 @@ export default {
   width: 100%; 
 }
 .el-table__row:hover {
-  background-color: #0c0e4a !important;
+  background-color: #a19f9f ;
 }
 .table-container {
   overflow-x: auto !important;
   overflow-y: auto !important;
+}
+.el-table__body-wrapper {
+  overflow: hidden !important;
+}
+.el-table__body .el-table__row:hover td {
+  color: rgb(44, 212, 235) !important;
+}
+.el-table__body td {
+  border-color: transparent !important;
+}
+.el-table__body tr:nth-of-type(2n) {
+  background: hsla(0, 0%, 52%, 0.1) !important;
 }
 </style>
