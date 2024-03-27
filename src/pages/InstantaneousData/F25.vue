@@ -2,9 +2,13 @@
   <div class="row">
     <div class="col-md-12">
       <card class="card-plain" body-classes="table-full-width">
+        <!-- Button group -->
+        <div class="button-group">
+          <el-button type="primary" @click="fetchData">Мэдээлэл татах</el-button>
+          <el-button type="primary" @click="exportData">Экспорт</el-button>
+        </div>
+
         <div class="position-relative" style="margin-top: -12px;">
-          <!-- Search bar row -->
-          
           <el-table
             ref="table"
             class="table-container"
@@ -18,22 +22,32 @@
             <el-table-column type="selection" width="55"></el-table-column>
             <!-- Table columns -->
             <template v-for="column in columns">
-                <el-table-column>
-                    <template slot="header">
-                        <input v-if="shouldDisplaySearch(column.prop)" 
-                        v-model="search[column.prop]" 
-                        class="form-control search-input" 
-                        :placeholder="column.label"
-                        clearable />
-                    </template>
-                <el-table-column :key="column.prop" 
-                                :prop="column.prop" 
-                                :label="column.label" 
-                                :width="column.prop === 'id' ? '65' : '250'" 
-                                :sortable="isSortable(column.prop)">
-                </el-table-column>
-            </el-table-column>
+              <el-table-column
+                :key="column.prop"
+                :prop="column.prop"
+                :label="column.label"
+                :width="column.width"
+                :sortable="column.sortable"
+              >
+                <template v-if="column.searchable" slot="header">
+                  <input v-model="search[column.prop]" class="form-control search-input" :placeholder="column.label" clearable />
+                  <span>{{ column.label }}</span>
+                </template>
+              </el-table-column>
             </template>
+            <el-table-column label="Үйлдлүүд" width="250">
+              <template #default="scope">
+                <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
+                  >Өөрчлөх</el-button
+                >
+                <el-button
+                  size="small"
+                  type="danger"
+                  @click="handleDelete(scope.$index, scope.row)"
+                  >Устгах</el-button
+                >
+              </template>
+            </el-table-column>
           </el-table>
         </div>
       </card>
@@ -42,36 +56,37 @@
 </template>
 
 <script>
-import { Table, TableColumn, Input } from 'element-ui';
+import { Table, TableColumn, Input, Button } from 'element-ui';
 import PerfectScrollbar from 'perfect-scrollbar';
-import 'perfect-scrollbar/css/perfect-scrollbar.css'; 
+import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
 export default {
   components: {
     [Table.name]: Table,
     [TableColumn.name]: TableColumn,
-    [Input.name]: Input
+    [Input.name]: Input,
+    [Button.name]: Button
   },
   data() {
     return {
       tableData: [],
       search: {},
       columns: [
-        { prop: 'id', label: 'ID', sortable: false },
-        { prop: 'concentrator', label: 'Concentrator', searchable: true },
-        { prop: 'transf', label: 'Transformer', searchable: true },
-        { prop: 'meter_number', label: 'Meter Number', searchable: true },
-        { prop: 'user_code', label: 'User Code', searchable: true },
-        { prop: 'user_name', label: 'User Name', searchable: true },
-        { prop: 'address', label: 'Address', searchable: true },
-        { prop: 'add_door', label: 'Apartment Door', searchable: true },
-        { prop: 'meter_type', label: 'Meter Type', searchable: true },
-        { prop: 'date', label: 'Date', sortable: true },
-        { prop: 'total_tariff', label: 'Total Tariff.kWh', sortable: true },
-        { prop: 'tariff1', label: 'Tariff1.kWh', sortable: true },
-        { prop: 'tariff2', label: 'Tariff2.kWh', sortable: true },
-        { prop: 'tariff3', label: 'Tariff3.kWh', sortable: true },
-        { prop: 'tariff4', label: 'Tariff4.kWh', sortable: true }
+        { prop: 'id', label: 'ID', width: '65', sortable: false, searchable: false },
+        { prop: 'concentrator', label: 'Концентратор', width: '250', sortable: true, searchable: true },
+        { prop: 'transf', label: 'Трансформатор', width: '250', sortable: true, searchable: true },
+        { prop: 'meter_number', label: 'Тоолуурын дугаар', width: '250', sortable: true, searchable: true },
+        { prop: 'user_code', label: 'Хэрэглэгчийн дугаар', width: '250', sortable: true, searchable: true },
+        { prop: 'user_name', label: 'Хэрэглэгчийн нэр', width: '250', sortable: true, searchable: true },
+        { prop: 'address', label: 'Хаяг', width: '250', sortable: true, searchable: true },
+        { prop: 'add_door', label: 'Хаалга тоот', width: '250', sortable: true, searchable: true },
+        { prop: 'meter_type', label: 'Тоолуурын төрөл', width: '250', sortable: true, searchable: true },
+        { prop: 'date', label: 'Мэдээлэл татсан огноо', width: '250', sortable: true, searchable: false },
+        { prop: 'total_tariff', label: 'Нийт.kWh', width: '250', sortable: true, searchable: false },
+        { prop: 'tariff1', label: 'Тариф 1.kWh', width: '250', sortable: true, searchable: false },
+        { prop: 'tariff2', label: 'Тариф 2.kWh', width: '250', sortable: true, searchable: false },
+        { prop: 'tariff3', label: 'Тариф 3.kWh', width: '250', sortable: true, searchable: false },
+        { prop: 'tariff4', label: 'Тариф 4.kWh', width: '250', sortable: true, searchable: false }
       ],
       scrollbar: null
     };
@@ -95,26 +110,26 @@ export default {
       this.scrollbar = new PerfectScrollbar(container);
     } catch (error) {
       console.error("Error fetching data:", error);
-    };
+    }
   },
   methods: {
-    shouldDisplaySearch(columnProp) {
-      const column = this.columns.find(col => col.prop === columnProp);
-      return column && column.searchable;
-    },
-    isSortable(columnProp) {
-      const column = this.columns.find(col => col.prop === columnProp);
-      return column && column.sortable !== false;
-    },
     handleRowClick(row) {
       this.$refs['table'].toggleRowSelection(row);
+    },
+    fetchData() {
+      // Implement logic to fetch data
+      console.log('Fetching data...');
+    },
+    exportData() {
+      // Implement logic to export data
+      console.log('Exporting data...');
     }
   },
   beforeDestroy() {
     if (this.scrollbar) {
       this.scrollbar.destroy();
     }
-  },
+  }
 };
 </script>
 
@@ -133,16 +148,14 @@ export default {
 .search-row {
   margin-bottom: 10px;
 }
-
 .search-column {
   display: flex;
 }
-
 .search-input {
-  width: 100%; 
+  width: 100%;
 }
 .el-table__row:hover {
-  background-color: #a19f9f ;
+  background-color: #a19f9f;
 }
 .table-container {
   overflow-x: auto !important;
@@ -159,5 +172,10 @@ export default {
 }
 .el-table__body tr:nth-of-type(2n) {
   background: hsla(0, 0%, 52%, 0.1) !important;
+}
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 50px;
 }
 </style>
