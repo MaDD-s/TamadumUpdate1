@@ -6,8 +6,24 @@
         <template slot="header">
           <div class="row">
             <div class="col-sm-6" :class="isRTL ? 'text-right' : 'text-left'">
-              <h5 class="card-category">Total shipments</h5>
-              <h2 class="card-title">Performance</h2>
+              <h2 class="card-title">Хэрэглээ <el-select
+                  multiple
+                  class="select-info"
+                  size="large"
+                  v-model="selects.multiple"
+                  collapse-tags
+                  placeholder="Дэд станцаа сонгоно уу"
+                >
+                  <el-option
+                    v-for="option in selects.countries"
+                    class="select-info"
+                    :value="option.value"
+                    :label="option.label"
+                    :key="option.label"
+                  >
+                  </el-option>
+                </el-select></h2>
+              <h5 class="card-category">kWh</h5>
             </div>
             <div class="col-sm-6 d-flex d-sm-block">
               <div
@@ -64,49 +80,10 @@
     </div>
 
     <!-- Small charts -->
-    <div class="col-lg-4" :class="{ 'text-right': isRTL }">
+    <div class="col-lg-8" :class="{ 'text-right': isRTL }">
       <card type="chart">
         <template slot="header">
-          <h5 class="card-category">Total Shipments</h5>
-          <h3 class="card-title">
-            <i class="tim-icons icon-bell-55 text-primary "></i> 763,215
-          </h3>
-        </template>
-        <div class="chart-area">
-          <line-chart
-            style="height: 100%"
-            :chart-data="purpleLineChart.chartData"
-            :gradient-colors="purpleLineChart.gradientColors"
-            :gradient-stops="purpleLineChart.gradientStops"
-            :extra-options="purpleLineChart.extraOptions"
-          >
-          </line-chart>
-        </div>
-      </card>
-    </div>
-    <div class="col-lg-4" :class="{ 'text-right': isRTL }">
-      <card type="chart">
-        <template slot="header">
-          <h5 class="card-category">Daily Sales</h5>
-          <h3 class="card-title">
-            <i class="tim-icons icon-delivery-fast text-info "></i> 3,500€
-          </h3>
-        </template>
-        <div class="chart-area">
-          <bar-chart
-            style="height: 100%"
-            :chart-data="blueBarChart.chartData"
-            :gradient-stops="blueBarChart.gradientStops"
-            :extra-options="blueBarChart.extraOptions"
-          >
-          </bar-chart>
-        </div>
-      </card>
-    </div>
-    <div class="col-lg-4" :class="{ 'text-right': isRTL }">
-      <card type="chart">
-        <template slot="header">
-          <h5 class="card-category">Completed tasks</h5>
+          <h5 class="card-category">b</h5>
           <h3 class="card-title">
             <i class="tim-icons icon-send text-success "></i> 12,100K
           </h3>
@@ -122,11 +99,29 @@
         </div>
       </card>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-4" :class="{ 'text-right': isRTL }">
+      <card type="chart">
+        <template slot="header">
+          <h5 class="card-category">нийт тоолуур</h5>
+          <h3 class="card-title">
+            <i class="tim-icons icon-send text-success "></i> 12000
+          </h3>
+        </template>
+        <div class="chart-area">
+          <pie-chart
+                  :chart-data="pieChart1.chartData"
+                  :extra-options="pieChart1.extraOptions"
+                  :height="120"
+                >
+                </pie-chart>
+        </div>
+      </card>
+    </div>
+    <div class="col-lg-12">
       <card type="tasks" :header-classes="{ 'text-right': isRTL }">
         <template slot="header">
           <h6 class="title d-inline">Tasks (5)</h6>
-          <p class="card-category d-inline">Today</p>
+          <p class="card-category d-inline">Өнөөдөр</p>
           <base-dropdown
             menu-on-right=""
             tag="div"
@@ -134,9 +129,9 @@
             :class="{ 'float-left': isRTL }"
           >
             <i slot="title" class="tim-icons icon-settings-gear-63"></i>
-            <a class="dropdown-item" href="#pablo"> Action </a>
-            <a class="dropdown-item" href="#pablo"> Another action </a>
-            <a class="dropdown-item" href="#pablo"> Something else </a>
+            <a class="dropdown-item" href="#pablo"> Хадгалах </a>
+            <a class="dropdown-item" href="#pablo"> Засах </a>
+            <a class="dropdown-item" href="#pablo"> Устгах </a>
           </base-dropdown>
         </template>
         <div class="table-full-width table-responsive">
@@ -144,24 +139,28 @@
         </div>
       </card>
     </div>
-    <div class="col-lg-7">
-      <card class="card" :header-classes="{ 'text-right': isRTL }">
-        <h5 slot="header" class="card-title">Management table</h5>
-        <div class="table-responsive"><user-table></user-table></div>
-      </card>
-    </div>
-    <div class="col-lg-12"><country-map-card></country-map-card></div>
+    
   </div>
 </template>
 <script>
+import {Select, Option } from 'element-ui';
+import {
+  BaseProgress,
+  BaseSwitch,
+  Slider,
+  ImageUpload,
+  TagsInput
+} from 'src/components/index';
 import LineChart from '@/components/Charts/LineChart';
 import BarChart from '@/components/Charts/BarChart';
+import PieChart from 'src/components/Charts/PieChart';
 import * as chartConfigs from '@/components/Charts/config';
 import TaskList from './TaskList';
 import UserTable from './UserTable';
 import CountryMapCard from './CountryMapCard';
 import StatsCard from 'src/components/Cards/StatsCard';
 import config from '@/config';
+
 
 let bigChartData = [
   [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
@@ -187,42 +186,84 @@ let bigChartDatasetOptions = {
 export default {
   components: {
     LineChart,
+    PieChart,
     BarChart,
     StatsCard,
     TaskList,
     CountryMapCard,
-    UserTable
+    UserTable,
+    [Option.name]: Option,
+    [Select.name]: Select,
+    BaseSwitch,
+    BaseProgress,
+    ImageUpload,
+    TagsInput,
+    Slider
   },
   data() {
     return {
+      enabledRadio: '2',
+      disabledRadio: '2',
+      images: {
+        regular: null,
+        avatar: null
+      },
+      switches: {
+        defaultOn: true,
+        defaultOff: false,
+        plainOn: true,
+        plainOff: false,
+        withIconsOn: true,
+        withIconsOff: false
+      },
+      sliders: {
+        simple: 30,
+        rangeSlider: [20, 60]
+      },
+      selects: {
+        simple: '',
+        countries: [
+          { value: '1-дугаар дэд станц', label: '1-дугаар дэд станц' },
+          { value: '2-дугаар дэд станц', label: '2-дугаар дэд станц' },
+          { value: '3-дугаар дэд станц', label: '3-дугаар дэд станц' },
+          { value: '4-дугаар дэд станц', label: '4-дугаар дэд станц' },
+          { value: '5-дугаар дэд станц', label: '5-дугаар дэд станц' },
+          { value: '6-дугаар дэд станц', label: '6-дугаар дэд станц' },
+          { value: '7-дугаар дэд станц', label: '7-дугаар дэд станц' },
+          { value: '8-дугаар дэд станц', label: '8-дугаар дэд станц' },
+          { value: '9-дугаар дэд станц', label: '9-дугаар дэд станц' },
+          { value: '10-дугаар дэд станц', label: '10-дугаар дэд станц' }
+        ],
+        multiple: 'ARS'
+      },
       statsCards: [
         {
-          title: '150GB',
-          subTitle: 'Number',
+          title: 'Нийт тоолуур',
+          subTitle: 'Тоо',
           type: 'warning',
           icon: 'tim-icons icon-chat-33',
-          footer: '<i class="tim-icons icon-refresh-01"></i> Update Now'
+          footer: '<i class="tim-icons icon-refresh-01"></i>'
         },
         {
-          title: '+45K',
-          subTitle: 'Followers',
+          title: '1000',
+          subTitle: 'Татагдсан тоолуур',
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
-          footer: '<i class="tim-icons icon-sound-wave"></i></i> Last Research'
+          footer: '<i class="tim-icons icon-sound-wave"></i></i> '
         },
         {
-          title: '150,000',
-          subTitle: 'Users',
+          title: '150',
+          subTitle: 'Нийт таслалт',
           type: 'info',
           icon: 'tim-icons icon-single-02',
-          footer: '<i class="tim-icons icon-trophy"></i> Customer feedback'
+          footer: '<i class="tim-icons icon-trophy"></i> '
         },
         {
           title: '23',
-          subTitle: 'Errors',
+          subTitle: 'Алдаа',
           type: 'danger',
           icon: 'tim-icons icon-molecule-40',
-          footer: '<i class="tim-icons icon-watch-time"></i> In the last hours'
+          footer: '<i class="tim-icons icon-watch-time"></i> '
         }
       ],
       bigLineChart: {
@@ -239,31 +280,21 @@ export default {
         gradientStops: [1, 0.4, 0],
         categories: []
       },
-      purpleLineChart: {
-        extraOptions: chartConfigs.purpleChartOptions,
+      pieChart1: {
         chartData: {
-          labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: [1, 2],
           datasets: [
             {
-              label: 'Data',
-              fill: true,
-              borderColor: config.colors.primary,
-              borderWidth: 2,
-              borderDash: [],
-              borderDashOffset: 0.0,
-              pointBackgroundColor: config.colors.primary,
-              pointBorderColor: 'rgba(255,255,255,0)',
-              pointHoverBackgroundColor: config.colors.primary,
-              pointBorderWidth: 20,
-              pointHoverRadius: 4,
-              pointHoverBorderWidth: 15,
-              pointRadius: 4,
-              data: [80, 100, 70, 80, 120, 80]
+              label: 'Emails',
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: ['#ff00ff', '#0000ff'],
+              borderWidth: 0,
+              data: [50, 50]
             }
           ]
         },
-        gradientColors: config.colors.primaryGradient,
-        gradientStops: [1, 0.2, 0]
+        extraOptions: chartConfigs.pieChartOptions
       },
       greenLineChart: {
         extraOptions: chartConfigs.greenChartOptions,
@@ -271,7 +302,7 @@ export default {
           labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV'],
           datasets: [
             {
-              label: 'My First dataset',
+              label: 'шинээр нэмэгдсэн тоолуур',
               fill: true,
               borderColor: config.colors.danger,
               borderWidth: 2,
@@ -295,25 +326,6 @@ export default {
         ],
         gradientStops: [1, 0.4, 0]
       },
-      blueBarChart: {
-        extraOptions: chartConfigs.barChartOptions,
-        chartData: {
-          labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
-          datasets: [
-            {
-              label: 'Countries',
-              fill: true,
-              borderColor: config.colors.info,
-              borderWidth: 2,
-              borderDash: [],
-              borderDashOffset: 0.0,
-              data: [53, 20, 10, 80, 100, 45]
-            }
-          ]
-        },
-        gradientColors: config.colors.primaryGradient,
-        gradientStops: [1, 0.4, 0]
-      }
     };
   },
   computed: {
@@ -324,7 +336,7 @@ export default {
       return this.$rtl.isRTL;
     },
     bigLineChartCategories() {
-      return [{ name: 'Accounts', icon: 'tim-icons icon-single-02' }, { name: 'Purchases', icon: 'tim-icons icon-gift-2' }, { name: 'Sessions', icon: 'tim-icons icon-tap-02' }];
+      return [{ name: 'Хоногоор', icon: 'tim-icons icon-single-02' }, { name: 'Долоо хоногоор', icon: 'tim-icons icon-gift-2' }, { name: 'Сараар', icon: 'tim-icons icon-tap-02' }];
     }
   },
   methods: {
@@ -336,6 +348,51 @@ export default {
         }],
         labels: bigChartLabels
       };
+      var currentDate = new Date();
+        var calculatedDays = [];
+        var calculatedWeeks = [];
+        var calculatedMonths = []
+              if (index === 0) {
+                for (let i = 1; i <= 12; i++) {
+                  // Get the date 10 days before the current date
+                  let date = new Date(currentDate);
+                  date.setDate(date.getDate() - i);
+                  
+                  // Format the date as MM/DD
+                  let month = date.getMonth() + 1; // Months are zero-indexed
+                  let day = date.getDate();
+                  let formattedDate = (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day;
+                  
+                  calculatedDays.unshift(formattedDate);                  
+                }
+                chartData.labels = calculatedDays;
+              }
+
+              if (index === 1) {
+                for (let i = 0; i < 10; i++) {
+                  let sundayDate = new Date(currentDate);
+                  sundayDate.setDate(sundayDate.getDate() - sundayDate.getDay() + (i * -7)); // Go back to Sunday of the week i weeks ago
+                  let month = sundayDate.getMonth() + 1; // Months are zero-indexed
+                  let day = sundayDate.getDate();
+                  let formattedDate = (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day;
+                  
+                  calculatedWeeks.unshift(formattedDate);                  
+                }
+                chartData.labels = calculatedWeeks;
+              }
+
+              if (index === 2) {
+                for (let i = 0; i <= 6; i++) {       
+                  let date = new Date(currentDate);
+                  date.setMonth(date.getMonth() - i);              
+                  let month = date.getMonth() + 1; // Months are zero-indexed
+                  let year = date.getFullYear();
+                  let formattedDate = (month < 10 ? '0' : '') + month + '/' + year;
+                  
+                  calculatedMonths.unshift(formattedDate);                  
+                }
+                chartData.labels = calculatedMonths;
+              }
       this.$refs.bigChart.updateGradients(chartData);
       this.bigLineChart.chartData = chartData;
       this.bigLineChart.activeIndex = index;
